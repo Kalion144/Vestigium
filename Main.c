@@ -1,6 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <windows.h>
+
 #include "tela.h"
+#include "menu.h"
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);    // Configura a saída do console para UTF-8
@@ -53,15 +56,12 @@ int main() {
         ""
     );
 
-     limparTela();
-
-    printf("\n");
-    printf("====================================================\n");
-    printf("                    VESTIGIUM                      \n");
-    printf("====================================================\n");
-
+     mostrarMenu();
 
     
+
+
+
 
     return 0;
 }
