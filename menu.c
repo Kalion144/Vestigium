@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include <menu.h>
-#include <tela.h>
+#include "menu.h"
+#include "tela.h"
+#include "informacoes.h"
 
 void mostrarMenu(void) {
 
@@ -34,7 +35,7 @@ void mostrarMenu(void) {
                 break;
 
             case 2:
-                printf("\n informações\n");
+                mostrarInformacoes();
                 esperarEnter();
                 break;
 

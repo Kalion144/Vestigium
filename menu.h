@@ -1,4 +1,4 @@
-#ifdef MENU_H
+#ifndef MENU_H
 #define MENU_H
 
 void mostrarMenu(void);
