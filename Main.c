@@ -47,6 +47,21 @@ int main() {
         "apenas como um observador."
     );
     
+    mostrarTexto(
+        "",
+        "Algumas marcas não podem ser ignoradas.",
+        ""
+    );
+
+     limparTela();
+
+    printf("\n");
+    printf("====================================================\n");
+    printf("                    VESTIGIUM                      \n");
+    printf("====================================================\n");
+
+
+    
 
     return 0;
 }
