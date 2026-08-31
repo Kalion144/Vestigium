@@ -36,7 +36,6 @@ void mostrarMenu(void) {
 
             case 2:
                 mostrarInformacoes();
-                esperarEnter();
                 break;
 
             case 3:

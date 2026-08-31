@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "informacoes.h"
+#include "tela.h"
 
 void mostrarInformacoes(void) {
 
