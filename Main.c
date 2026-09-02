@@ -5,6 +5,7 @@
 #include "tela.h"
 #include "menu.h"
 #include "informacoes.h"
+#include "creditos.h"
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);    // Configura a saída do console para UTF-8
