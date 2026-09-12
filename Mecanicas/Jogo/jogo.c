@@ -12,6 +12,8 @@
 #include "../Evolução/evolucao.h"
 
 void iniciarJogo() {
+
+     limparTela();
     Luke luke;
 
     Mutante mutante1;

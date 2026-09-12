@@ -5,6 +5,7 @@
 #include "tela.h"
 #include "informacoes.h"
 #include "creditos.h"
+#include "../Mecanicas/Jogo/jogo.h"
 
 void mostrarMenu() {
     int opcao;
