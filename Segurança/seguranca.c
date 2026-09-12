@@ -9,4 +9,9 @@ void iniciarSeguranca(Seguranca *seguranca) {
     seguranca->resistencia = 10;
     seguranca->precisao = 10;
     seguranca->evasao = 5;
+
+    seguranca->chanceQueimadura = 30;
+
+    seguranca->chanceAtadura = 30;
+    seguranca->chanceFrascoSangue = 5;
 }

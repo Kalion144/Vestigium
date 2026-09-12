@@ -1,5 +1,5 @@
-#ifndef SEGURANCA_H
-#define SEGURANCA_H
+#ifndef CIENTISTA_H
+#define CIENTISTA_H
 
 typedef struct {
     int vida;
@@ -10,13 +10,15 @@ typedef struct {
     int precisao;
     int evasao;
 
+    int chanceEnvenenamento;
     int chanceQueimadura;
 
-    int chanceAtadura;
     int chanceFrascoSangue;
+    int chancePocaoCura;
+    int chanceAntidoto;
 
-} Seguranca;
+} Cientista;
 
-void iniciarSeguranca(Seguranca *seguranca);
+void iniciarCientista(Cientista *cientista);
 
 #endif
