@@ -1,11 +1,11 @@
 #ifndef ATAQUES_H
 #define ATAQUES_H
 
-#include "luke.h"
-#include "mutante.h"
-#include "seguranca.h"
-#include "cientista.h"
-#include "lucius.h"
+#include "../../Personagens/Luke/luke.h"
+#include "../../Personagens/Mutante/mutante.h"
+#include "../../Personagens/Segurança/seguranca.h"
+#include "../../Personagens/Cientista/cientista.h"
+#include "../../Personagens/Lucius/lucius.h"
 
 int corteEspada(Luke *luke);
 int socoDireto(Luke *luke);

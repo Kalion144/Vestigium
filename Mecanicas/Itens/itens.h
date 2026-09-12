@@ -1,7 +1,7 @@
 #ifndef ITENS_H
 #define ITENS_H
 
-#include "luke.h"
+#include "../../Personagens/Luke/luke.h"
 
 void usarFrascoSangue(Luke *luke);
 void usarPocaoCura(Luke *luke);

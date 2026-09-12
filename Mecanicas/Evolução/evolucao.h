@@ -1,7 +1,7 @@
 #ifndef EVOLUCAO_H
 #define EVOLUCAO_H
 
-#include "luke.h"
+#include "../../Personagens/Luke/luke.h"
 
 void subirNivel(Luke *luke);
 void distribuirAtributos(Luke *luke);

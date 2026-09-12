@@ -1,13 +1,15 @@
 #include "jogo.h"
 
-#include "luke.h"
-#include "mutante.h"
-#include "seguranca.h"
-#include "cientista.h"
-#include "lucius.h"
+#include "../../tela.h"
 
-#include "combate.h"
-#include "evolucao.h"
+#include "../../Personagens/Luke/luke.h"
+#include "../../Personagens/Mutante/mutante.h"
+#include "../../Personagens/Segurança/seguranca.h"
+#include "../../Personagens/Cientista/cientista.h"
+#include "../../Personagens/Lucius/lucius.h"
+
+#include "../Combate/combate.h"
+#include "../Evolução/evolucao.h"
 
 void iniciarJogo() {
     Luke luke;

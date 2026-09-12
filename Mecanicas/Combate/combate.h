@@ -1,11 +1,11 @@
 #ifndef COMBATE_H
 #define COMBATE_H
 
-#include "luke.h"
-#include "mutante.h"
-#include "seguranca.h"
-#include "cientista.h"
-#include "lucius.h"
+#include "../../Personagens/Luke/luke.h"
+#include "../../Personagens/Mutante/mutante.h"
+#include "../../Personagens/Segurança/seguranca.h"
+#include "../../Personagens/Cientista/cientista.h"
+#include "../../Personagens/Lucius/lucius.h"
 
 void combateMutante(Luke *luke, Mutante *mutante);
 void combateSeguranca(Luke *luke, Seguranca *seguranca);
