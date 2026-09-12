@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include <creditos.h>
+#include "creditos.h"
 #include "../tela.h"
 
 void mostrarCreditos(void) {

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "menu.h"
-#include "tela.h"
+#include "../tela.h"
 #include "informacoes.h"
 #include "creditos.h"
 #include "../Mecanicas/Jogo/jogo.h"
