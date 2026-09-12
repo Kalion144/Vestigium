@@ -1,39 +1,33 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "menu.h"
 #include "tela.h"
 #include "informacoes.h"
 #include "creditos.h"
 
-void mostrarMenu(void) {
-
+void mostrarMenu() {
     int opcao;
 
-    do{
-
+    do {
         limparTela();
 
-        printf("\n");
-        printf("====================================================\n");
-        printf("|                                                  |\n");
-        printf("|                    VESTIGIUM                     |\n");
-        printf("|                                                  |\n");
-        printf("|                  1. INICIAR                      |\n");
-        printf("|                  2. INFORMAÇÕES                  |\n");
-        printf("|                  3. CREDITOS                     |\n");
-        printf("|                  4. SAIR                         |\n");
-        printf("|                                                  |\n");
-        printf("====================================================\n");
+        printf("╔══════════════════════════════════════╗\n");
+        printf("║              VESTIGIUM               ║\n");
+        printf("╠══════════════════════════════════════╣\n");
+        printf("║  1. Iniciar Jogo                     ║\n");
+        printf("║  2. Informações                      ║\n");
+        printf("║  3. Créditos                         ║\n");
+        printf("║  4. Sair                             ║\n");
+        printf("╚══════════════════════════════════════╝\n");
 
         printf("\nEscolha uma opção: ");
         scanf("%d", &opcao);
-        
-        while (getchar() != '\n');
-        
+
         switch (opcao) {
+
             case 1:
-                printf("\nIniciando jogo...\n");
-                esperarEnter();
+                iniciarJogo();
                 break;
 
             case 2:
@@ -45,13 +39,15 @@ void mostrarMenu(void) {
                 break;
 
             case 4:
-                printf("\nSaindo do jogo...\n");
+                limparTela();
+                printf("Encerrando VESTIGIUM...\n");
                 break;
 
             default:
-                printf("\nOpção invalida!\n");
+                printf("\nOpção inválida.\n");
+                esperarEnter();
+                break;
         }
-       
+
     } while (opcao != 4);
 }
-

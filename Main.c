@@ -1,14 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <time.h>
 
 #include "tela.h"
 #include "menu.h"
 #include "informacoes.h"
 #include "creditos.h"
 
+#include "luke.h"
+#include "mutante.h"
+#include "seguranca.h"
+#include "cientista.h"
+#include "lucius.h"
+
+#include "combate.h"
+#include "evolucao.h"
+
+
+
 int main() {
     SetConsoleOutputCP(CP_UTF8);    // Configura a saída do console para UTF-8
+
+    srand(time(NULL));
+
+    int opcao;
+
+    Luke luke;
+
+    Mutante mutante1;
+    Mutante mutante2;
+
+    Seguranca seguranca;
+    Cientista cientista;
+    Lucius lucius;
 
     mostrarTexto( //Caixa 1
         "Por milhares de anos, a humanidade caminhou sobre esta terra. ",
