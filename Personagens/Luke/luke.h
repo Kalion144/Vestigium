@@ -2,7 +2,9 @@
 #define LUKE_H
 
 typedef struct {
+
     int nivel;
+
     int vida;
     int vidaMaxima;
 
@@ -14,8 +16,14 @@ typedef struct {
     int pontosAtributo;
 
     int sangramento;
+    int turnosSangramento;
+
     int queimadura;
+    int turnosQueimadura;
+
     int envenenamento;
+    int intensidadeVeneno;
+
 } Luke;
 
 void iniciarLuke(Luke *luke);
