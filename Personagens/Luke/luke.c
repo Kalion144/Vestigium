@@ -22,4 +22,9 @@ void iniciarLuke(Luke *luke) {
 
     luke->envenenamento = 0;
     luke->intensidadeVeneno = 1;
+
+    luke->frascoSangue = 0;
+    luke->pocaoCura = 1;
+    luke->antidoto = 0;
+    luke->ataduras = 1;
 }

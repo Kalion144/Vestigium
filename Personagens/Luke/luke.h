@@ -24,6 +24,11 @@ typedef struct {
     int envenenamento;
     int intensidadeVeneno;
 
+    int frascoSangue;
+    int pocaoCura;
+    int antidoto;
+    int ataduras;
+
 } Luke;
 
 void iniciarLuke(Luke *luke);
