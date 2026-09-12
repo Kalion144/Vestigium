@@ -25,6 +25,14 @@ void iniciarJogo() {
     iniciarLuke(&luke);
     iniciarMutante(&mutante1);
     iniciarMutante(&mutante2);
+
+    // O segundo mutante aparece mais tarde e representa uma ameaça maior.
+    mutante2.vidaMaxima = 120;
+    mutante2.vida = mutante2.vidaMaxima;
+    mutante2.forca = 10;
+    mutante2.resistencia = 5;
+    mutante2.evasao = 10;
+
     iniciarSeguranca(&seguranca);
     iniciarCientista(&cientista);
     iniciarLucius(&lucius);
