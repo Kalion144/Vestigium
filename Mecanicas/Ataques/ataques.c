@@ -1,10 +1,6 @@
 #include <stdlib.h>
 #include "ataques.h"
-#include "luke.h"
-#include "mutante.h"
-#include "seguranca.h"
-#include "cientista.h"
-#include "lucius.h"
+#include "../Efeitos/efeitos.h"
 
 int corteEspada(Luke *luke) {
     int dano = luke->forca;

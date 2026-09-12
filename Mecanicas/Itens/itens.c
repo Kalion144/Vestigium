@@ -1,5 +1,5 @@
 #include "itens.h"
-#include "efeitos.h"
+#include "../Efeitos/efeitos.h"
 
 void usarFrascoSangue(Luke *luke) {
     if (luke->frascoSangue <= 0) {
