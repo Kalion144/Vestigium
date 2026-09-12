@@ -13,28 +13,33 @@
 
 void iniciarJogo() {
 
-     limparTela();
-    Luke luke;
+    limparTela();
 
+    Luke luke;
     Mutante mutante1;
     Mutante mutante2;
-
     Seguranca seguranca;
     Cientista cientista;
     Lucius lucius;
 
     iniciarLuke(&luke);
-
     iniciarMutante(&mutante1);
     iniciarMutante(&mutante2);
-
     iniciarSeguranca(&seguranca);
     iniciarCientista(&cientista);
     iniciarLucius(&lucius);
 
+    mostrarTexto(
+        "Antes de iniciar sua jornada,",
+        "distribua seus pontos entre os atributos",
+        "de Luke Carmesin."
+    );
+
+    limparTela();
+
     distribuirAtributos(&luke);
 
-    //combate 1
+    limparTela();
 
     mostrarTexto(
         "Luke deixa a cidade e segue em direção às florestas.",
@@ -97,10 +102,9 @@ void iniciarJogo() {
     );
 
     distribuirAtributos(&luke);
+    limparTela();
 
-    // comabte 2
-
-        mostrarTexto(
+    mostrarTexto(
         "Luke continua avançando pela floresta devastada.",
         "Entre árvores mortas e solo contaminado,",
         "ele encontra um rio cortando a região."
@@ -178,14 +182,11 @@ void iniciarJogo() {
         "também significa colocar fim ao seu sofrimento."
     );
 
-
     combateMutante(&luke, &mutante2);
-
 
     if (luke.vida <= 0) {
         return;
     }
-
 
     mostrarTexto(
         "O corpo da criatura finalmente para de se debater.",
@@ -247,709 +248,565 @@ void iniciarJogo() {
         "Pretendia fazê-lo responder pelo que havia feito."
     );
 
+    distribuirAtributos(&luke);
+    limparTela();
+
+    mostrarTexto(
+        "Luke continua seguindo o rio contra a correnteza.",
+        "A cada passo, os sinais de destruição",
+        "se tornam mais intensos."
+    );
+
+    mostrarTexto(
+        "Árvores foram derrubadas em grandes extensões.",
+        "O solo foi rasgado por máquinas pesadas",
+        "e enormes áreas foram reduzidas a lama e resíduos."
+    );
+
+    mostrarTexto(
+        "Depois de algum tempo, Luke encontra a origem",
+        "de parte da contaminação.",
+        "Um grande tubo despeja resíduos diretamente no rio."
+    );
+
+    mostrarTexto(
+        "O líquido que sai dali é escuro e espesso.",
+        "O mesmo material que corre pela floresta",
+        "e transforma animais em criaturas deformadas."
+    );
+
+    mostrarTexto(
+        "Luke observa o local ao redor.",
+        "Máquinas, estruturas industriais e áreas de extração",
+        "ocupam grande parte daquela região."
+    );
+
+    mostrarTexto(
+        "Não era um acidente isolado.",
+        "Aquilo fazia parte de uma operação organizada",
+        "e continuava funcionando normalmente."
+    );
+
+    mostrarTexto(
+        "Luke segue em direção às instalações.",
+        "Sua expressão permanece fria,",
+        "mas a fúria ainda cresce dentro dele."
+    );
+
+    mostrarTexto(
+        "Antes que consiga entrar,",
+        "um homem armado bloqueia sua passagem.",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Pare aí.\"",
+        "\"Esta área é restrita.\"",
+        "\"Volte por onde veio.\""
+    );
+
+    mostrarTexto(
+        "Luke observa o homem por alguns segundos.",
+        "O uniforme e a arma deixam claro",
+        "que ele trabalha para aquela instalação."
+    );
+
+    mostrarTexto(
+        "\"Você sabe o que estão fazendo aqui?\"",
+        "pergunta Luke.",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Não é problema meu.\"",
+        "\"Sou pago para proteger este lugar.\"",
+        "\"E é exatamente isso que vou fazer.\""
+    );
+
+    mostrarTexto(
+        "Luke olha novamente para o rio contaminado.",
+        "Depois, para o homem diante dele.",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Então você escolheu proteger isso.\"",
+        "",
+        ""
+    );
+
+    mostrarTexto(
+        "O segurança segura o rifle com mais força.",
+        "Luke não demonstra intenção de recuar.",
+        "A conversa termina ali."
+    );
+
+    combateSeguranca(&luke, &seguranca);
+
+    if (luke.vida <= 0) {
+        return;
+    }
+
+    mostrarTexto(
+        "O segurança cai no chão.",
+        "Luke se aproxima lentamente,",
+        "mantendo os olhos sobre ele."
+    );
+
+    mostrarTexto(
+        "\"Eu só estava fazendo meu trabalho...\"",
+        "diz o homem, tentando recuperar o fôlego.",
+        ""
+    );
+
+    mostrarTexto(
+        "Luke permanece em silêncio por alguns segundos.",
+        "Depois olha para as máquinas funcionando",
+        "atrás dos muros da instalação."
+    );
+
+    mostrarTexto(
+        "\"Todos escolhem o que estão dispostos",
+        "a fazer em troca de dinheiro.\"",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Cumprir ordens não apaga",
+        "as consequências delas.\"",
+        ""
+    );
+
+    mostrarTexto(
+        "Luke deixa o segurança para trás.",
+        "Ele não era a origem daquele problema.",
+        "Era apenas mais uma peça mantendo tudo funcionando."
+    );
+
+    mostrarTexto(
+        "Luke atravessa a entrada da instalação.",
+        "Se queria encontrar o responsável,",
+        "precisava continuar avançando."
+    );
 
     distribuirAtributos(&luke);
-
-    //combate 3
+    limparTela();
 
     mostrarTexto(
-    "Luke continua seguindo o rio contra a correnteza.",
-    "A cada passo, os sinais de destruição",
-    "se tornam mais intensos."
-);
-
-mostrarTexto(
-    "Árvores foram derrubadas em grandes extensões.",
-    "O solo foi rasgado por máquinas pesadas",
-    "e enormes áreas foram reduzidas a lama e resíduos."
-);
-
-mostrarTexto(
-    "Depois de algum tempo, Luke encontra a origem",
-    "de parte da contaminação.",
-    "Um grande tubo despeja resíduos diretamente no rio."
-);
-
-mostrarTexto(
-    "O líquido que sai dali é escuro e espesso.",
-    "O mesmo material que corre pela floresta",
-    "e transforma animais em criaturas deformadas."
-);
-
-mostrarTexto(
-    "Luke observa o local ao redor.",
-    "Máquinas, estruturas industriais e áreas de extração",
-    "ocupam grande parte daquela região."
-);
-
-mostrarTexto(
-    "Não era um acidente isolado.",
-    "Aquilo fazia parte de uma operação organizada",
-    "e continuava funcionando normalmente."
-);
-
-mostrarTexto(
-    "Luke segue em direção às instalações.",
-    "Sua expressão permanece fria,",
-    "mas a fúria ainda cresce dentro dele."
-);
-
-mostrarTexto(
-    "Antes que consiga entrar,",
-    "um homem armado bloqueia sua passagem.",
-    ""
-);
-
-mostrarTexto(
-    "\"Pare aí.\"",
-    "\"Esta área é restrita.\"",
-    "\"Volte por onde veio.\""
-);
-
-mostrarTexto(
-    "Luke observa o homem por alguns segundos.",
-    "O uniforme e a arma deixam claro",
-    "que ele trabalha para aquela instalação."
-);
-
-mostrarTexto(
-    "\"Você sabe o que estão fazendo aqui?\"",
-    "pergunta Luke.",
-    ""
-);
-
-mostrarTexto(
-    "\"Não é problema meu.\"",
-    "\"Sou pago para proteger este lugar.\"",
-    "\"E é exatamente isso que vou fazer.\""
-);
-
-mostrarTexto(
-    "Luke olha novamente para o rio contaminado.",
-    "Depois, para o homem diante dele.",
-    ""
-);
-
-mostrarTexto(
-    "\"Então você escolheu proteger isso.\"",
-    "",
-    ""
-);
-
-mostrarTexto(
-    "O segurança segura o rifle com mais força.",
-    "Luke não demonstra intenção de recuar.",
-    "A conversa termina ali."
-);
-
-
-combateSeguranca(&luke, &seguranca);
-
-
-if (luke.vida <= 0) {
-    return;
-}
-
-
-mostrarTexto(
-    "O segurança cai no chão.",
-    "Luke se aproxima lentamente,",
-    "mantendo os olhos sobre ele."
-);
-
-mostrarTexto(
-    "\"Eu só estava fazendo meu trabalho...\"",
-    "diz o homem, tentando recuperar o fôlego.",
-    ""
-);
-
-mostrarTexto(
-    "Luke permanece em silêncio por alguns segundos.",
-    "Depois olha para as máquinas funcionando",
-    "atrás dos muros da instalação."
-);
-
-mostrarTexto(
-    "\"Todos escolhem o que estão dispostos",
-    "a fazer em troca de dinheiro.\"",
-    ""
-);
-
-mostrarTexto(
-    "\"Cumprir ordens não apaga",
-    "as consequências delas.\"",
-    ""
-);
-
-mostrarTexto(
-    "Luke deixa o segurança para trás.",
-    "Ele não era a origem daquele problema.",
-    "Era apenas mais uma peça mantendo tudo funcionando."
-);
-
-mostrarTexto(
-    "Luke atravessa a entrada da instalação.",
-    "Se queria encontrar o responsável,",
-    "precisava continuar avançando."
-);
-
-
-distribuirAtributos(&luke);
-
-//combate 4
-
-mostrarTexto(
-    "Luke avança pelos corredores da instalação.",
-    "Tubulações, tanques e equipamentos ocupam",
-    "boa parte daquele complexo."
-);
-
-mostrarTexto(
-    "O cheiro químico é ainda mais forte ali dentro.",
-    "Resíduos escorrem por canaletas no chão",
-    "e desaparecem por sistemas de drenagem."
-);
-
-mostrarTexto(
-    "Em uma das salas, Luke encontra",
-    "um homem cercado por frascos, anotações",
-    "e equipamentos de laboratório."
-);
-
-mostrarTexto(
-    "O homem ergue os olhos lentamente.",
-    "Ele não parece surpreso.",
-    ""
-);
-
-mostrarTexto(
-    "\"Então você conseguiu entrar.\"",
-    "diz o cientista.",
-    "\"Imaginei que o segurança não conseguiria pará-lo.\""
-);
-
-mostrarTexto(
-    "Luke observa os recipientes espalhados pela sala.",
-    "Alguns contêm líquidos escuros.",
-    "Outros, amostras de tecido deformado."
-);
-
-mostrarTexto(
-    "\"Você sabe o que isso está causando?\"",
-    "pergunta Luke.",
-    ""
-);
-
-mostrarTexto(
-    "O cientista sorri discretamente.",
-    "\"É claro que sei.\"",
-    "\"Eu ajudei a desenvolver parte do processo.\""
-);
-
-mostrarTexto(
-    "Luke permanece em silêncio.",
-    "Por alguns segundos,",
-    "a sala parece ainda mais fria."
-);
-
-mostrarTexto(
-    "\"Animais estão sendo deformados.\"",
-    "diz Luke.",
-    "\"A floresta está morrendo.\""
-);
-
-mostrarTexto(
-    "\"Consequências inevitáveis.\"",
-    "responde o cientista.",
-    "\"Todo avanço exige algum tipo de sacrifício.\""
-);
-
-mostrarTexto(
-    "Luke encara o homem diante dele.",
-    "A fúria retorna imediatamente.",
-    ""
-);
-
-mostrarTexto(
-    "\"Você chama isso de avanço?\"",
-    "\"Transformar vidas em sofrimento",
-    "apenas porque você consegue?\""
-);
-
-mostrarTexto(
-    "O cientista ajusta as luvas.",
-    "\"Conhecimento existe para ser usado.\"",
-    "\"Limites são obstáculos impostos por quem tem medo.\""
-);
-
-mostrarTexto(
-    "Luke dá um passo à frente.",
-    "",
-    ""
-);
-
-mostrarTexto(
-    "\"Conhecimento sem responsabilidade",
-    "não é inteligência.\"",
-    ""
-);
-
-mostrarTexto(
-    "\"É apenas poder nas mãos",
-    "de alguém incapaz de compreender",
-    "as consequências do que faz.\""
-);
-
-mostrarTexto(
-    "O sorriso do cientista desaparece.",
-    "Ele pega alguns frascos sobre a bancada.",
-    ""
-);
-
-mostrarTexto(
-    "\"Você fala como se estivesse acima de nós.\"",
-    "\"Mas no fim, você também resolve tudo",
-    "com violência.\""
-);
-
-mostrarTexto(
-    "Luke desembainha sua espada.",
-    "\"A diferença é que eu sei",
-    "por que estou usando a minha.\""
-);
-
-
-combateCientista(&luke, &cientista);
-
-
-if (luke.vida <= 0) {
-    return;
-}
-
-
-mostrarTexto(
-    "O cientista cai entre os equipamentos quebrados.",
-    "Frascos e instrumentos estão espalhados",
-    "pelo chão do laboratório."
-);
-
-mostrarTexto(
-    "Luke se aproxima.",
-    "O homem tenta se afastar,",
-    "mas não consegue continuar lutando."
-);
-
-mostrarTexto(
-    "\"Vai me matar?\"",
-    "pergunta o cientista.",
-    ""
-);
-
-mostrarTexto(
-    "\"Não.\"",
-    "responde Luke.",
-    ""
-);
-
-mostrarTexto(
-    "\"Morrer seria simples demais.\"",
-    "\"Você sabia exatamente",
-    "o que estava fazendo.\""
-);
-
-mostrarTexto(
-    "Luke encontra um par de algemas",
-    "entre os equipamentos de segurança",
-    "e prende as mãos do cientista."
-);
-
-mostrarTexto(
-    "\"Você vai responder por isso.\"",
-    "\"Não para mim.\"",
-    "\"Para todos que foram afetados por suas escolhas.\""
-);
-
-mostrarTexto(
-    "Luke deixa o cientista imobilizado.",
-    "O laboratório já não parece",
-    "um lugar de conhecimento."
-);
-
-mostrarTexto(
-    "Parece apenas o resultado",
-    "do que acontece quando inteligência",
-    "e responsabilidade deixam de caminhar juntas."
-);
-
-
-distribuirAtributos(&luke);
-
-//combate final
-
-mostrarTexto(
-    "Luke deixa o laboratório para trás",
-    "e continua avançando pelo complexo.",
-    "Quanto mais se aproxima do centro da instalação,"
-);
-
-mostrarTexto(
-    "mais sofisticados se tornam os equipamentos.",
-    "Máquinas automatizadas, estruturas metálicas",
-    "e sistemas de controle ocupam toda a área."
-);
-
-mostrarTexto(
-    "Ao fim de um grande corredor,",
-    "Luke encontra uma sala ampla",
-    "cercada por painéis e estruturas industriais."
-);
-
-mostrarTexto(
-    "No centro da sala, um homem o aguarda.",
-    "Diferente dos outros,",
-    "ele não demonstra surpresa."
-);
-
-mostrarTexto(
-    "\"Luke Carmesin.\"",
-    "diz o homem.",
-    "\"Finalmente.\""
-);
-
-mostrarTexto(
-    "Luke permanece em silêncio.",
-    "Seu olhar percorre a sala",
-    "antes de voltar para o homem."
-);
-
-mostrarTexto(
-    "\"Lucius Varn.\"",
-    "responde Luke.",
-    ""
-);
-
-mostrarTexto(
-    "Lucius sorri.",
-    "\"Então você já sabe quem eu sou.\"",
-    ""
-);
-
-mostrarTexto(
-    "\"Sei o suficiente.\"",
-    "diz Luke.",
-    "\"Sei o que sua operação está fazendo lá fora.\""
-);
-
-mostrarTexto(
-    "\"Florestas destruídas.\"",
-    "\"Água contaminada.\"",
-    "\"Animais transformados em aberrações.\""
-);
-
-mostrarTexto(
-    "Lucius permanece tranquilo.",
-    "\"Você fala como se isso fosse novidade.\"",
-    ""
-);
-
-mostrarTexto(
-    "\"Toda civilização foi construída",
-    "sobre algum tipo de destruição.\"",
-    "\"A diferença é que eu não finjo que não vejo.\""
-);
-
-mostrarTexto(
-    "Luke fecha os punhos.",
-    "\"Então você sabe exatamente",
-    "o que está causando.\""
-);
-
-mostrarTexto(
-    "\"É claro que sei.\"",
-    "responde Lucius.",
-    "\"E continuo mesmo assim.\""
-);
-
-mostrarTexto(
-    "\"Porque enquanto homens como você",
-    "se preocupam com consequências,",
-    "homens como eu constroem o futuro.\""
-);
-
-mostrarTexto(
-    "Luke encara Lucius sem desviar o olhar.",
-    "\"Você não está construindo um futuro.\"",
-    ""
-);
-
-mostrarTexto(
-    "\"Está consumindo tudo ao seu redor",
-    "e chamando a destruição",
-    "de progresso.\""
-);
-
-mostrarTexto(
-    "Lucius ri discretamente.",
-    "\"Progresso sempre teve um preço.\"",
-    ""
-);
-
-mostrarTexto(
-    "\"A diferença entre nós",
-    "é que eu estou disposto a pagá-lo.\"",
-    ""
-);
-
-mostrarTexto(
-    "Luke dá um passo à frente.",
-    "\"Não.\"",
-    ""
-);
-
-mostrarTexto(
-    "\"Você nunca pagou esse preço.\"",
-    "\"Quem pagou foram aqueles",
-    "que nunca tiveram escolha.\""
-);
-
-mostrarTexto(
-    "Por alguns segundos,",
-    "o sorriso de Lucius desaparece.",
-    ""
-);
-
-mostrarTexto(
-    "\"Você vive há séculos, Luke.\"",
-    "\"Viu impérios nascerem e desaparecerem.\"",
-    "\"Deveria entender melhor que ninguém.\""
-);
-
-mostrarTexto(
-    "\"O mundo sempre pertenceu",
-    "a quem teve força para moldá-lo.\"",
-    ""
-);
-
-mostrarTexto(
-    "Luke responde sem hesitar.",
-    "\"E eu também vi o que acontece",
-    "com homens que acreditam nisso.\""
-);
-
-mostrarTexto(
-    "Lucius se afasta alguns passos.",
-    "Atrás dele, uma grande estrutura metálica",
-    "começa a se movimentar."
-);
-
-mostrarTexto(
-    "Braços mecânicos se encaixam",
-    "ao redor de seu corpo.",
-    "Placas metálicas cobrem seus braços e torso."
-);
-
-mostrarTexto(
-    "Um exoesqueleto envolve Lucius.",
-    "Motores e sistemas de energia",
-    "entram em funcionamento."
-);
-
-mostrarTexto(
-    "\"Você atravessou meus homens.\"",
-    "\"Destruiu meu laboratório.\"",
-    "\"E agora acredita que pode me julgar.\""
-);
-
-mostrarTexto(
-    "Luke desembainha sua espada.",
-    "\"Não estou aqui para julgá-lo.\"",
-    ""
-);
-
-mostrarTexto(
-    "\"Suas próprias escolhas",
-    "já fizeram isso por você.\"",
-    ""
-);
-
-mostrarTexto(
-    "Lucius fecha os punhos mecânicos.",
-    "O impacto do metal ecoa pela sala.",
-    ""
-);
-
-mostrarTexto(
-    "\"Então venha, vampiro.\"",
-    "\"Vamos descobrir qual de nós",
-    "merece permanecer de pé.\""
-);
-
-combateLucius(&luke, &lucius);
-
-if (luke.vida <= 0) {
-
-    mostrarTexto(
-        "Luke cai diante de Lucius.",
-        "Sua espada escapa de sua mão",
-        "e desliza pelo chão."
+        "Luke avança pelos corredores da instalação.",
+        "Tubulações, tanques e equipamentos ocupam",
+        "boa parte daquele complexo."
     );
 
     mostrarTexto(
-        "Lucius observa o corpo de Luke.",
-        "\"No fim, você era apenas",
-        "mais um obstáculo.\""
+        "O cheiro químico é ainda mais forte ali dentro.",
+        "Resíduos escorrem por canaletas no chão",
+        "e desaparecem por sistemas de drenagem."
     );
 
     mostrarTexto(
-        "As máquinas continuam funcionando.",
-        "Os resíduos continuam sendo despejados.",
-        "A floresta continua morrendo."
+        "Em uma das salas, Luke encontra",
+        "um homem cercado por frascos, anotações",
+        "e equipamentos de laboratório."
     );
 
     mostrarTexto(
-        "Novas criaturas começam a surgir.",
-        "Mais violentas.",
-        "Mais deformadas."
+        "O homem ergue os olhos lentamente.",
+        "Ele não parece surpreso.",
+        ""
     );
 
     mostrarTexto(
-        "Com o passar dos anos,",
-        "a contaminação deixa de atingir",
-        "apenas aquela região."
+        "\"Então você conseguiu entrar.\"",
+        "diz o cientista.",
+        "\"Imaginei que o segurança não conseguiria pará-lo.\""
     );
 
     mostrarTexto(
-        "Ela se espalha.",
-        "Novas espécies sofrem mutações.",
-        "Ecossistemas inteiros entram em colapso."
+        "Luke observa os recipientes espalhados pela sala.",
+        "Alguns contêm líquidos escuros.",
+        "Outros, amostras de tecido deformado."
     );
 
     mostrarTexto(
-        "A humanidade continua avançando",
-        "como se nada estivesse acontecendo.",
-        "Até que já não existe mais volta."
+        "\"Você sabe o que isso está causando?\"",
+        "pergunta Luke.",
+        ""
     );
 
     mostrarTexto(
-        "No fim, as criaturas que surgiram",
-        "das consequências humanas",
-        "se tornam numerosas demais para controlar."
+        "O cientista sorri discretamente.",
+        "\"É claro que sei.\"",
+        "\"Eu ajudei a desenvolver parte do processo.\""
     );
 
     mostrarTexto(
-        "O mundo que os homens tentaram dominar",
-        "se torna incapaz de sustentar",
-        "aqueles que o destruíram."
+        "Luke permanece em silêncio.",
+        "Por alguns segundos,",
+        "a sala parece ainda mais fria."
+    );
+
+    mostrarTexto(
+        "\"Animais estão sendo deformados.\"",
+        "diz Luke.",
+        "\"A floresta está morrendo.\""
+    );
+
+    mostrarTexto(
+        "\"Consequências inevitáveis.\"",
+        "responde o cientista.",
+        "\"Todo avanço exige algum tipo de sacrifício.\""
+    );
+
+    mostrarTexto(
+        "Luke encara o homem diante dele.",
+        "A fúria retorna imediatamente.",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Você chama isso de avanço?\"",
+        "\"Transformar vidas em sofrimento",
+        "apenas porque você consegue?\""
+    );
+
+    mostrarTexto(
+        "O cientista ajusta as luvas.",
+        "\"Conhecimento existe para ser usado.\"",
+        "\"Limites são obstáculos impostos por quem tem medo.\""
+    );
+
+    mostrarTexto(
+        "Luke dá um passo à frente.",
+        "",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Conhecimento sem responsabilidade",
+        "não é inteligência.\"",
+        ""
+    );
+
+    mostrarTexto(
+        "\"É apenas poder nas mãos",
+        "de alguém incapaz de compreender",
+        "as consequências do que faz.\""
+    );
+
+    mostrarTexto(
+        "O sorriso do cientista desaparece.",
+        "Ele pega alguns frascos sobre a bancada.",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Você fala como se estivesse acima de nós.\"",
+        "\"Mas no fim, você também resolve tudo",
+        "com violência.\""
+    );
+
+    mostrarTexto(
+        "Luke desembainha sua espada.",
+        "\"A diferença é que eu sei",
+        "por que estou usando a minha.\""
+    );
+
+    combateCientista(&luke, &cientista);
+
+    if (luke.vida <= 0) {
+        return;
+    }
+
+    mostrarTexto(
+        "O cientista cai entre os equipamentos quebrados.",
+        "Frascos e instrumentos estão espalhados",
+        "pelo chão do laboratório."
+    );
+
+    mostrarTexto(
+        "Luke se aproxima.",
+        "O homem tenta se afastar,",
+        "mas não consegue continuar lutando."
+    );
+
+    mostrarTexto(
+        "\"Vai me matar?\"",
+        "pergunta o cientista.",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Não.\"",
+        "responde Luke.",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Morrer seria simples demais.\"",
+        "\"Você sabia exatamente",
+        "o que estava fazendo.\""
+    );
+
+    mostrarTexto(
+        "Luke encontra um par de algemas",
+        "entre os equipamentos de segurança",
+        "e prende as mãos do cientista."
+    );
+
+    mostrarTexto(
+        "\"Você vai responder por isso.\"",
+        "\"Não para mim.\"",
+        "\"Para todos que foram afetados por suas escolhas.\""
+    );
+
+    mostrarTexto(
+        "Luke deixa o cientista imobilizado.",
+        "O laboratório já não parece",
+        "um lugar de conhecimento."
+    );
+
+    mostrarTexto(
+        "Parece apenas o resultado",
+        "do que acontece quando inteligência",
+        "e responsabilidade deixam de caminhar juntas."
+    );
+
+    distribuirAtributos(&luke);
+    limparTela();
+
+    mostrarTexto(
+        "Luke continua avançando pelas instalações.",
+        "Até chegar a uma grande sala no centro",
+        "do complexo industrial."
+    );
+
+    mostrarTexto(
+        "No outro lado da sala,",
+        "um homem o aguarda.",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Luke Carmesin.\"",
+        "diz o homem.",
+        "\"Finalmente.\""
+    );
+
+    mostrarTexto(
+        "Luke observa Lucius Varn.",
+        "O homem responsável pela operação",
+        "permanece completamente tranquilo."
+    );
+
+    mostrarTexto(
+        "\"Florestas destruídas.\"",
+        "\"Água contaminada.\"",
+        "\"Animais transformados em aberrações.\""
+    );
+
+    mostrarTexto(
+        "\"Você sabe exatamente",
+        "o que está acontecendo aqui.\"",
+        ""
+    );
+
+    mostrarTexto(
+        "\"É claro que sei.\"",
+        "responde Lucius.",
+        "\"Eu apenas não finjo que o progresso é gratuito.\""
+    );
+
+    mostrarTexto(
+        "\"Toda civilização foi construída",
+        "sobre alguma forma de destruição.\"",
+        "\"Eu só aceitei essa realidade.\""
+    );
+
+    mostrarTexto(
+        "\"E mesmo conhecendo as consequências,",
+        "você continua.\"",
+        "diz Luke."
+    );
+
+    mostrarTexto(
+        "\"Homens como eu constroem o futuro.\"",
+        "\"Homens como você perdem tempo",
+        "se preocupando com as consequências.\""
+    );
+
+    mostrarTexto(
+        "\"Você não está construindo um futuro.\"",
+        "\"Está consumindo tudo ao seu redor",
+        "e chamando a destruição de progresso.\""
+    );
+
+    mostrarTexto(
+        "\"Todo progresso tem um preço.\"",
+        "diz Lucius.",
+        "\"E eu estou disposto a pagá-lo.\""
+    );
+
+    mostrarTexto(
+        "\"Você nunca pagou esse preço.\"",
+        "responde Luke.",
+        "\"Quem pagou foram aqueles que nunca tiveram escolha.\""
+    );
+
+    mostrarTexto(
+        "Lucius sorri.",
+        "\"O mundo sempre pertenceu",
+        "àqueles fortes o bastante para moldá-lo.\""
+    );
+
+    mostrarTexto(
+        "\"Eu já vi homens acreditarem nisso antes.\"",
+        "diz Luke.",
+        "\"Nenhum deles terminou como imaginava.\""
+    );
+
+    mostrarTexto(
+        "Lucius aciona um mecanismo.",
+        "Partes metálicas começam a envolver seu corpo.",
+        ""
+    );
+
+    mostrarTexto(
+        "Um exoesqueleto pesado se fecha ao redor dele.",
+        "Motores e sistemas mecânicos entram em funcionamento.",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Não estou aqui para julgá-lo.\"",
+        "diz Luke.",
+        "\"Suas próprias escolhas já fizeram isso por você.\""
+    );
+
+    combateLucius(&luke, &lucius);
+
+    if (luke.vida <= 0) {
+
+        mostrarTexto(
+            "Luke cai no chão.",
+            "Seu corpo já não consegue continuar lutando.",
+            ""
+        );
+
+        mostrarTexto(
+            "Lucius observa Luke por alguns segundos.",
+            "\"Você poderia ter simplesmente ido embora.\"",
+            ""
+        );
+
+        mostrarTexto(
+            "\"No fim, você era apenas",
+            "mais um obstáculo no caminho.\"",
+            ""
+        );
+
+        mostrarTexto(
+            "As máquinas continuam funcionando.",
+            "Os resíduos continuam sendo despejados.",
+            "Nada muda."
+        );
+
+        mostrarTexto(
+            "Com o passar do tempo,",
+            "novas criaturas surgem.",
+            "A contaminação continua se espalhando."
+        );
+
+        mostrarTexto(
+            "Florestas desaparecem.",
+            "Rios morrem.",
+            "Ecossistemas inteiros entram em colapso."
+        );
+
+        mostrarTexto(
+            "A humanidade continua avançando",
+            "até perceber tarde demais",
+            "que havia destruído aquilo que a mantinha viva."
+        );
+
+        mostrarTexto(
+            "",
+            "DERROTA",
+            ""
+        );
+
+        return;
+    }
+
+    mostrarTexto(
+        "O exoesqueleto de Lucius começa a falhar.",
+        "Faíscas escapam das placas metálicas.",
+        "Os motores perdem força."
+    );
+
+    mostrarTexto(
+        "Lucius cai de joelhos.",
+        "Pela primeira vez,",
+        "sua expressão demonstra incerteza."
+    );
+
+    mostrarTexto(
+        "\"Você realmente acha que isso muda alguma coisa?\"",
+        "pergunta Lucius.",
+        ""
+    );
+
+    mostrarTexto(
+        "\"Se eu parar, outro continuará.\"",
+        "\"Sempre haverá alguém disposto",
+        "a fazer o que eu fiz.\""
+    );
+
+    mostrarTexto(
+        "\"Talvez.\"",
+        "responde Luke.",
+        "\"Mas escolhas não são inevitáveis.\""
+    );
+
+    mostrarTexto(
+        "\"O mundo não chegou até aqui sozinho.\"",
+        "\"Pessoas escolheram trazê-lo até aqui.\"",
+        ""
+    );
+
+    mostrarTexto(
+        "Com Lucius derrotado,",
+        "a operação finalmente é interrompida.",
+        ""
+    );
+
+    mostrarTexto(
+        "As máquinas param.",
+        "O tubo deixa de despejar resíduos no rio.",
+        "O silêncio retorna lentamente."
+    );
+
+    mostrarTexto(
+        "A floresta não se recuperará rapidamente.",
+        "Talvez algumas marcas permaneçam",
+        "por décadas."
+    );
+
+    mostrarTexto(
+        "Mas, pela primeira vez em muito tempo,",
+        "existe a possibilidade",
+        "de que algo volte a crescer."
     );
 
     mostrarTexto(
         "",
-        "DERROTA",
+        "VITÓRIA",
         ""
     );
 
-    return;
-}
-
-mostrarTexto(
-    "O exoesqueleto de Lucius começa a falhar.",
-    "Faíscas escapam das placas metálicas",
-    "enquanto seus sistemas perdem força."
-);
-
-mostrarTexto(
-    "Lucius cai de joelhos.",
-    "Pela primeira vez,",
-    "sua confiança desaparece."
-);
-
-mostrarTexto(
-    "\"Você acha que isso muda alguma coisa?\"",
-    "pergunta Lucius.",
-    ""
-);
-
-mostrarTexto(
-    "\"Sempre haverá alguém",
-    "disposto a continuar",
-    "o que eu comecei.\""
-);
-
-mostrarTexto(
-    "Luke observa Lucius no chão.",
-    "\"Talvez.\"",
-    ""
-);
-
-mostrarTexto(
-    "\"Mas isso não transforma",
-    "suas escolhas em inevitáveis.\"",
-    ""
-);
-
-mostrarTexto(
-    "\"O mundo não chegou a este ponto sozinho.\"",
-    "\"Pessoas escolheram trazê-lo até aqui.\"",
-    ""
-);
-
-mostrarTexto(
-    "Luke olha através das grandes janelas",
-    "da instalação.",
-    "Ao longe, a floresta ainda está destruída."
-);
-
-mostrarTexto(
-    "O rio continua contaminado.",
-    "Animais já morreram.",
-    "Outros jamais voltarão ao que eram."
-);
-
-mostrarTexto(
-    "Vencer Lucius não desfazia",
-    "o que havia acontecido.",
-    ""
-);
-
-mostrarTexto(
-    "Mas interrompia aquilo",
-    "antes que as marcas",
-    "se tornassem ainda maiores."
-);
-
-mostrarTexto(
-    "As atividades da instalação são interrompidas.",
-    "Pela primeira vez em muito tempo,",
-    "os resíduos deixam de correr para o rio."
-);
-
-mostrarTexto(
-    "Luke sabe que a floresta",
-    "não se recuperará da noite para o dia.",
-    ""
-);
-
-mostrarTexto(
-    "Algumas marcas levarão décadas para desaparecer.",
-    "Outras permanecerão.",
-    ""
-);
-
-mostrarTexto(
-    "Mas enquanto ainda existir algo",
-    "capaz de ser protegido,",
-    "a destruição não precisa ser o único caminho."
-);
-
-mostrarTexto(
-    "",
-    "VITÓRIA",
-    ""
-);
-
-mostrarTexto(
-    "",
-    "Alguns vestígios contam o que aconteceu.",
-    "Outros servem para lembrar o que não deve se repetir."
-);
+    mostrarTexto(
+        "Alguns vestígios contam o que aconteceu.",
+        "Outros servem para lembrar",
+        "o que não deve se repetir."
+    );
 }
