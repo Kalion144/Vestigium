@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-#include "informacoes.h"
-#include "tela.h"
+#include <creditos.h>
+#include "../tela.h"
 
 void mostrarCreditos(void) {
     limparTela();
