@@ -96,89 +96,153 @@ void iniciarJogo() {
 
     // comabte 2
 
+        mostrarTexto(
+        "Luke continua avançando pela floresta devastada.",
+        "Entre árvores mortas e solo contaminado,",
+        "ele encontra um rio cortando a região."
+    );
+
     mostrarTexto(
-    "Luke continua seguindo pela floresta.",
-    "Pouco depois, encontra um rio",
-    "atravessando aquela região."
-);
+        "A água está completamente corrompida.",
+        "Uma corrente escura, coberta por resíduos,",
+        "carrega um forte cheiro químico."
+    );
 
-mostrarTexto(
-    "A água, porém, está longe de parecer normal.",
-    "Sua coloração é escura e um forte odor",
-    "se espalha pelas margens."
-);
+    mostrarTexto(
+        "Luke observa a direção da correnteza.",
+        "A contaminação não surgiu ali.",
+        "Algo estava despejando aquilo no rio."
+    );
 
-mostrarTexto(
-    "Luke observa o fluxo da água.",
-    "Se aquela contaminação veio de algum lugar,",
-    "o rio poderia levá-lo até a origem."
-);
+    mostrarTexto(
+        "Ele começa a seguir contra a correnteza,",
+        "procurando a origem daquela destruição.",
+        ""
+    );
 
-mostrarTexto(
-    "Ele decide seguir contra a correnteza.",
-    "Quanto mais avança, mais sinais de destruição",
-    "aparecem ao redor."
-);
+    mostrarTexto(
+        "Depois de algum tempo, um som rompe o silêncio.",
+        "Não era um rugido.",
+        "Era um gemido de dor."
+    );
 
-mostrarTexto(
-    "De repente, Luke escuta um som à frente.",
-    "Não parece um rugido ou um chamado.",
-    "Parece dor."
-);
+    mostrarTexto(
+        "Luke encontra uma criatura entre as árvores.",
+        "Seu corpo está tão deformado que é difícil",
+        "reconhecer que tipo de animal aquilo um dia foi."
+    );
 
-mostrarTexto(
-    "Entre a vegetação, ele encontra outra criatura.",
-    "Seu corpo ainda lembra o de um cachorro,",
-    "mas está profundamente deformado."
-);
+    mostrarTexto(
+        "Membros irregulares e feridas cobrem seu corpo.",
+        "Entre as deformações, alguns poucos traços",
+        "ainda lembram vagamente os de um cachorro."
+    );
 
-mostrarTexto(
-    "A criatura se contorce e golpeia o próprio corpo.",
-    "Como se tentasse desesperadamente",
-    "se livrar daquilo que se tornou."
-);
+    mostrarTexto(
+        "A criatura se debate violentamente contra o chão.",
+        "Morde a própria carne e golpeia o próprio corpo,",
+        "desesperada para fazer a dor parar."
+    );
 
-mostrarTexto(
-    "Ao perceber Luke, o animal se torna agressivo.",
-    "Confuso e tomado pela dor,",
-    "ele avança contra Luke."
-);
+    mostrarTexto(
+        "Sangue escorre das feridas que ela mesma abriu.",
+        "Mesmo assim, continua se mutilando.",
+        "A dor parece maior que seu instinto de sobrevivência."
+    );
 
-combateMutante(&luke, &mutante2);
+    mostrarTexto(
+        "Luke permanece imóvel por alguns segundos.",
+        "Depois de 2.500 anos observando a humanidade,",
+        "poucas coisas ainda conseguiam perturbá-lo."
+    );
 
-if (luke.vida <= 0) {
-    return;
-}
+    mostrarTexto(
+        "",
+        "Aquilo conseguiu.",
+        ""
+    );
 
-mostrarTexto(
-    "A criatura cai no chão.",
-    "Por alguns instantes, Luke apenas observa",
-    "o animal imóvel diante dele."
-);
+    mostrarTexto(
+        "A criatura finalmente percebe a presença de Luke.",
+        "Confusa, enlouquecida pela dor e pelo medo,",
+        "ela avança."
+    );
 
-mostrarTexto(
-    "Diferente da criatura anterior,",
-    "aquele animal parecia lutar",
-    "contra o próprio corpo."
-);
+    mostrarTexto(
+        "Luke desembainha sua espada.",
+        "Desta vez, ele sabe que vencer aquela criatura",
+        "também significa colocar fim ao seu sofrimento."
+    );
 
-mostrarTexto(
-    "Luke entende que não enfrentou um monstro.",
-    "Enfrentou um animal transformado",
-    "em algo que nunca deveria ter sido."
-);
 
-mostrarTexto(
-    "Sem dizer uma palavra, Luke cava a terra",
-    "e enterra o corpo próximo à floresta.",
-    ""
-);
+    combateMutante(&luke, &mutante2);
 
-mostrarTexto(
-    "Depois, retorna até o rio contaminado.",
-    "A resposta ainda está em algum lugar",
-    "acima daquela correnteza."
-);
 
-distribuirAtributos(&luke);
+    if (luke.vida <= 0) {
+        return;
+    }
+
+
+    mostrarTexto(
+        "O corpo da criatura finalmente para de se debater.",
+        "Os gemidos desaparecem.",
+        "A floresta volta ao silêncio."
+    );
+
+    mostrarTexto(
+        "Luke observa as feridas espalhadas pelo corpo.",
+        "Muitas não foram causadas pela batalha.",
+        "A própria criatura havia rasgado sua carne."
+    );
+
+    mostrarTexto(
+        "Aquilo não era um monstro.",
+        "Era um animal condenado a uma existência",
+        "de dor por algo que jamais poderia compreender."
+    );
+
+    mostrarTexto(
+        "Luke fecha os olhos do animal.",
+        "Depois cava uma pequena sepultura",
+        "e enterra o que restou dele."
+    );
+
+    mostrarTexto(
+        "Não havia honra naquela morte.",
+        "Não havia vitória.",
+        "Apenas uma vítima a menos sofrendo."
+    );
+
+    mostrarTexto(
+        "Luke retorna para a margem do rio.",
+        "Agora, a contaminação diante dele",
+        "carregava um significado diferente."
+    );
+
+    mostrarTexto(
+        "Alguém havia provocado aquilo.",
+        "E se alguém conhecia as consequências",
+        "e ainda assim continuava..."
+    );
+
+    mostrarTexto(
+        "Luke fecha os punhos com força.",
+        "A indignação que sentia até então",
+        "havia se transformado em fúria."
+    );
+
+    mostrarTexto(
+        "Durante séculos, ele viu homens destruírem",
+        "vidas em nome de poder, riqueza e progresso.",
+        "Mas aquilo havia ultrapassado qualquer limite."
+    );
+
+    mostrarTexto(
+        "Se havia alguém por trás daquela atrocidade,",
+        "Luke não pretendia apenas encontrá-lo.",
+        "Pretendia fazê-lo responder pelo que havia feito."
+    );
+
+
+    distribuirAtributos(&luke);
 }
