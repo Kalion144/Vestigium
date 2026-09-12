@@ -12,5 +12,9 @@ void iniciarLuke(Luke *luke) {
     luke->agilidade = 0;
     luke->precisao = 0;
 
+    luke->sangramento = 0;
+    luke->queimadura = 0;
+    luke->envenenamento = 0;
+
     luke->pontosAtributo = 3;
 }

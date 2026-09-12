@@ -12,6 +12,10 @@ typedef struct {
     int precisao;
 
     int pontosAtributo;
+
+    int sangramento;
+    int queimadura;
+    int envenenamento;
 } Luke;
 
 void iniciarLuke(Luke *luke);
