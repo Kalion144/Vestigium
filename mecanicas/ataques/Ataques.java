@@ -26,10 +26,10 @@ public class Ataques {
     public static void ataqueFuria(Mutante m, Luke l) {
         int dano=reduzirDanoPorResistenciaLuke(l,m.forca); System.out.println("O Mutante usou Ataque de Furia!");
         l.vida-=dano; if(l.vida<0)l.vida=0; System.out.printf("Luke recebeu %d de dano.\n",dano);
-        if(RAND.nextInt(100)<15){int j=l.sangramento;
+        if(RAND.nextInt(100)<10){int j=l.sangramento;
         Efeitos.aplicarSangramento(l);
         if(j==0&&l.sangramento==1)System.out.println("Luke comecou a sangrar!");}
-        if(RAND.nextInt(100)<15){int j=l.envenenamento;
+        if(RAND.nextInt(100)<10){int j=l.envenenamento;
         Efeitos.aplicarEnvenenamento(l);
         if(j==0&&l.envenenamento==1)System.out.println("Luke foi envenenado!");}
     }

@@ -20,12 +20,14 @@ public class Efeitos {
             luke.queimadura = 1;
             luke.turnosQueimadura = 0;
 
-            int dano = luke.vidaMaxima * 10 / 100;
-            luke.vida -= Math.max(dano, 1);
+            int dano = Math.max(luke.vidaMaxima * 10 / 100, 1);
+            luke.vida -= dano;
 
             if (luke.vida < 0) {
                 luke.vida = 0;
             }
+
+            System.out.printf("Queimadura causou %d de dano em Luke.\n", dano);
         }
     }
 
@@ -53,6 +55,7 @@ public class Efeitos {
 
         if (luke.turnosSangramento > 7) {
             luke.vida = 0;
+            System.out.println("Luke morreu por hemorragia.");
             return;
         }
 
@@ -62,6 +65,8 @@ public class Efeitos {
         if (luke.vida < 0) {
             luke.vida = 0;
         }
+
+        System.out.printf("Sangramento causou %d de dano em Luke.\n", dano);
     }
 
     public static void processarQueimadura(Luke luke) {
@@ -83,6 +88,12 @@ public class Efeitos {
         if (luke.vida < 0) {
             luke.vida = 0;
         }
+
+        System.out.printf(
+                "Veneno causou %d de dano em Luke (%d%%).\n",
+                dano,
+                luke.intensidadeVeneno
+        );
 
         luke.intensidadeVeneno++;
     }
@@ -140,42 +151,74 @@ public class Efeitos {
 
     public static void processarSangramento(Mutante inimigo) {
         if (inimigo.sangramento == 0) return;
+
         inimigo.turnosSangramento++;
+        int vidaAntes = inimigo.vida;
+
         inimigo.vida = calcularVidaAposSangramento(
                 inimigo.vida,
                 inimigo.vidaMaxima,
                 inimigo.turnosSangramento
         );
+
+        int dano = vidaAntes - inimigo.vida;
+        if (dano > 0) {
+            System.out.printf("Mutante sofreu %d de dano por sangramento.\n", dano);
+        }
     }
 
     public static void processarSangramento(Seguranca inimigo) {
         if (inimigo.sangramento == 0) return;
+
         inimigo.turnosSangramento++;
+        int vidaAntes = inimigo.vida;
+
         inimigo.vida = calcularVidaAposSangramento(
                 inimigo.vida,
                 inimigo.vidaMaxima,
                 inimigo.turnosSangramento
         );
+
+        int dano = vidaAntes - inimigo.vida;
+        if (dano > 0) {
+            System.out.printf("Seguranca sofreu %d de dano por sangramento.\n", dano);
+        }
     }
 
     public static void processarSangramento(Cientista inimigo) {
         if (inimigo.sangramento == 0) return;
+
         inimigo.turnosSangramento++;
+        int vidaAntes = inimigo.vida;
+
         inimigo.vida = calcularVidaAposSangramento(
                 inimigo.vida,
                 inimigo.vidaMaxima,
                 inimigo.turnosSangramento
         );
+
+        int dano = vidaAntes - inimigo.vida;
+        if (dano > 0) {
+            System.out.printf("Cientista sofreu %d de dano por sangramento.\n", dano);
+        }
     }
 
     public static void processarSangramento(Lucius inimigo) {
         if (inimigo.sangramento == 0) return;
+
         inimigo.turnosSangramento++;
+        int vidaAntes = inimigo.vida;
+
         inimigo.vida = calcularVidaAposSangramento(
                 inimigo.vida,
                 inimigo.vidaMaxima,
                 inimigo.turnosSangramento
         );
+
+        int dano = vidaAntes - inimigo.vida;
+        if (dano > 0) {
+            System.out.printf("Lucius sofreu %d de dano por sangramento.\n", dano);
+        }
     }
 
     private static int calcularVidaAposSangramento(
