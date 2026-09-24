@@ -1,35 +1,255 @@
 public class Informacoes {
+
     public static void mostrarInformacoes() {
         int opcao;
+
         do {
             Tela.limparTela();
+
             System.out.println("╔══════════════════════════════════════╗");
             System.out.println("║              INFORMAÇÕES             ║");
             System.out.println("╠══════════════════════════════════════╣");
             System.out.println("║                                      ║");
             System.out.println("║   1 - Combate                        ║");
             System.out.println("║   2 - Turnos                         ║");
-            System.out.println("║   3 - Efeitos                        ║");
-            System.out.println("║   4 - Itens                          ║");
-            System.out.println("║   5 - Voltar                         ║");
+            System.out.println("║   3 - Atributos                      ║");
+            System.out.println("║   4 - Ataques de Luke                ║");
+            System.out.println("║   5 - Efeitos                        ║");
+            System.out.println("║   6 - Itens e Drops                  ║");
+            System.out.println("║   7 - Evolução                       ║");
+            System.out.println("║   8 - Voltar                         ║");
             System.out.println("║                                      ║");
             System.out.println("╚══════════════════════════════════════╝");
             System.out.print("\nEscolha uma opção: ");
-            opcao=Tela.lerInteiro();
-            switch(opcao){case 1->mostrarCombate();case 2->mostrarTurnos();case 3->mostrarEfeitos();case 4->mostrarItens();case 5->{}default->{System.out.println("\nOpção inválida!");
-        Tela.esperarEnter();}}
-        } while(opcao!=5);
+
+            opcao = Tela.lerInteiro();
+
+            switch (opcao) {
+                case 1 -> mostrarCombate();
+                case 2 -> mostrarTurnos();
+                case 3 -> mostrarAtributos();
+                case 4 -> mostrarAtaques();
+                case 5 -> mostrarEfeitos();
+                case 6 -> mostrarItens();
+                case 7 -> mostrarEvolucao();
+                case 8 -> { }
+                default -> {
+                    System.out.println("\nOpção inválida!");
+                    Tela.esperarEnter();
+                }
+            }
+
+        } while (opcao != 8);
     }
-    public static void mostrarCombate(){Tela.limparTela();
-        System.out.print("=============== COMBATE ===============\n\nO combate em VESTIGIUM acontece por turnos.\nLuke enfrenta diferentes inimigos e deve utilizar\nsuas habilidades, armas e itens para sobreviver.\n\nOBJETIVO\nO objetivo do combate e reduzir a vida do inimigo\na 0 HP antes que a vida de Luke chegue a 0 HP.\n\nDURANTE O COMBATE\nEm seu turno, Luke pode escolher uma acao.\nAs acoes podem causar dano, utilizar itens ou\ninteragir com os efeitos presentes no combate.\n\nATAQUES\nCada ataque possui um valor de dano proprio.\nAlguns ataques tambem podem aplicar efeitos negativos\nao inimigo.\n\nEFEITOS\nAlguns ataques possuem chance de causar efeitos,\ncomo sangramento, queimadura ou envenenamento.\nEsses efeitos podem alterar o resultado do combate\nmesmo depois que o ataque termina.\n\nVIDA\nLuke inicia seus combates com 100 HP.\nCaso seus HP cheguem a 0, Luke sera derrotado.\nO inimigo tambem sera derrotado ao chegar a 0 HP.\n\nVITORIA\nO combate termina quando a vida do inimigo chega\na 0 HP.\n\nDERROTA\nSe a vida de Luke chegar a 0 HP, o combate sera\nencerrado e o jogador sera derrotado.\n");
-        Tela.esperarEnter();}
-    public static void mostrarTurnos(){Tela.limparTela();
-        System.out.print("================ TURNOS ================\n\nO combate e dividido em turnos.\nCada turno representa uma nova rodada de acoes\nentre Luke e seu inimigo.\n\nINICIO DO TURNO\nNo inicio de cada turno, o jogo verifica os efeitos\nque estao ativos em Luke e no inimigo.\n\nTURNO DE LUKE\nO jogador escolhe uma acao para Luke realizar.\nA acao escolhida pode ser um ataque ou a utilizacao\nde um item, dependendo das opcoes disponiveis.\n\nTURNO DO INIMIGO\nDepois da acao de Luke, o inimigo realiza sua acao.\nCada inimigo possui comportamentos e ataques proprios.\n\nEFEITOS\nOs efeitos ativos continuam sendo considerados\ndurante os turnos, seguindo suas regras especificas.\n\nPROXIMO TURNO\nDepois que Luke e o inimigo realizarem suas acoes,\no turno termina e uma nova rodada comeca.\n\nO combate continua dessa forma ate que Luke ou\no inimigo seja derrotado.\n");
-        Tela.esperarEnter();}
-    public static void mostrarEfeitos(){Tela.limparTela();
-        System.out.print("================ EFEITOS ================\n\nOs efeitos sao condicoes que alteram o estado de\nLuke ou dos inimigos durante o combate.\n\nSANGRAMENTO\nO sangramento representa uma perda continua de vida.\n\n- Causa 5% de dano por turno.\n- O dano continua enquanto o efeito estiver ativo.\n- O efeito deve ser tratado para ser removido.\n- Se nao for tratado dentro de 7 turnos,\n  Luke sofrera morte por hemorragia no turno seguinte.\n\nQUEIMADURA\nA queimadura representa danos causados por fogo ou\noutras fontes de calor extremo.\n\n- Causa 10% de dano quando aplicada.\n- Reduz a forca de Luke em 30% enquanto estiver ativa.\n- Pode permanecer ativa por no maximo 5 turnos.\n\nENVENENAMENTO\nO veneno causa um dano que aumenta progressivamente.\n\n- Comeca causando 1% de dano.\n- O dano aumenta em 1% a cada turno.\n- O efeito continua aumentando enquanto estiver ativo.\n- Pode ser removido utilizando o item adequado.\n\nACUMULO DE EFEITOS\nOs efeitos nao podem ser acumulados.\nSe Luke ja estiver sob determinado efeito, o mesmo\nefeito nao podera ser aplicado novamente enquanto\na condicao ainda estiver ativa.\n");
-        Tela.esperarEnter();}
-    public static void mostrarItens(){Tela.limparTela();
-        System.out.print("================ ITENS ================\n\nOs itens sao recursos que podem auxiliar Luke\ndurante sua jornada e principalmente durante os combates.\n\nUTILIZACAO\nOs itens podem ser utilizados para recuperar recursos,\ntratar efeitos negativos ou obter vantagens durante\ndeterminadas situacoes.\n\nITENS DE CURA\nItens de cura recuperam parte da vida de Luke.\nEles devem ser utilizados com cuidado para evitar\nque Luke seja derrotado durante o combate.\n\nANTIDOTO\nO antidoto e utilizado para remover o envenenamento.\nSua utilizacao pode ser importante contra inimigos\nque possuem ataques capazes de envenenar Luke.\n\nTRATAMENTO DE EFEITOS\nAlguns itens possuem a funcao de remover efeitos\nnegativos aplicados durante o combate.\n\nESTRATEGIA\nOs itens sao recursos limitados. Por isso, o jogador\ndeve avaliar o momento correto para utiliza-los.\nUsar um item muito cedo pode desperdiçar um recurso,\nenquanto esperar demais pode resultar na derrota.\n");
-        Tela.esperarEnter();}
+
+    public static void mostrarCombate() {
+        Tela.limparTela();
+
+        System.out.println("=============== COMBATE ===============\n");
+        System.out.println("O combate de VESTIGIUM acontece por turnos.");
+        System.out.println("O objetivo é reduzir a vida do inimigo a 0 antes");
+        System.out.println("que a vida de Luke chegue a 0.\n");
+
+        System.out.println("AÇÕES DE LUKE");
+        System.out.println("1. Atacar   - Escolhe um dos ataques disponíveis.");
+        System.out.println("2. Esquivar - Gasta o turno para aumentar bastante");
+        System.out.println("              a chance de evitar o próximo ataque.");
+        System.out.println("3. Bolsa    - Permite utilizar um item.\n");
+
+        System.out.println("RESISTÊNCIA DO INIMIGO");
+        System.out.println("Parte do dano de Luke pode ser reduzida pela resistência");
+        System.out.println("do inimigo. O ataque Julgamento possui penetração e");
+        System.out.println("consegue ignorar parte dessa resistência.\n");
+
+        System.out.println("EVASÃO");
+        System.out.println("Luke e os inimigos podem desviar de ataques.");
+        System.out.println("A Agilidade aumenta a esquiva de Luke.\n");
+
+        System.out.println("VITÓRIA E DERROTA");
+        System.out.println("O combate termina quando Luke ou o inimigo chega a 0 HP.");
+
+        Tela.esperarEnter();
+    }
+
+    public static void mostrarTurnos() {
+        Tela.limparTela();
+
+        System.out.println("================ TURNOS ================\n");
+        System.out.println("Cada rodada é formada pelo turno de Luke e pelo turno");
+        System.out.println("do inimigo.\n");
+
+        System.out.println("1. Luke escolhe uma ação.");
+        System.out.println("2. Se Luke atacar, o inimigo ainda pode desviar.");
+        System.out.println("3. Se o inimigo sobreviver, ele realiza seu ataque.");
+        System.out.println("4. A esquiva de Luke é verificada.");
+        System.out.println("5. Os efeitos ativos de Luke são processados.");
+        System.out.println("6. Se o inimigo estiver sangrando, o sangramento dele");
+        System.out.println("   também é processado.");
+        System.out.println("7. Uma nova rodada começa.\n");
+
+        System.out.println("Usar um item consome o turno quando o item é utilizado.");
+        System.out.println("Voltar da Bolsa ou escolher uma opção inválida não");
+        System.out.println("consome o turno.");
+
+        Tela.esperarEnter();
+    }
+
+    public static void mostrarAtributos() {
+        Tela.limparTela();
+
+        System.out.println("=============== ATRIBUTOS ===============\n");
+        System.out.println("Luke possui quatro atributos distribuíveis.");
+        System.out.println("Cada atributo pode chegar no máximo a 5 pontos.\n");
+
+        System.out.println("FORÇA");
+        System.out.println("Aumenta diretamente o dano dos ataques de Luke.");
+        System.out.println("Cada ponto acrescenta 3 ao cálculo base dos ataques.\n");
+
+        System.out.println("RESISTÊNCIA");
+        System.out.println("Reduz o dano físico recebido por Luke.");
+        System.out.println("Cada ponto representa 10% de resistência.");
+        System.out.println("No nível máximo do atributo, Luke possui 50%.\n");
+
+        System.out.println("AGILIDADE");
+        System.out.println("Aumenta a chance de esquiva.");
+        System.out.println("A esquiva ativa começa em 5% e aumenta 14% por ponto.");
+        System.out.println("A esquiva passiva corresponde a aproximadamente 1/3");
+        System.out.println("da chance da esquiva ativa.\n");
+
+        System.out.println("PRECISÃO");
+        System.out.println("Aumenta a chance de crítico do Soco Direto e Julgamento.");
+        System.out.println("Também aumenta a penetração do Julgamento.");
+        System.out.println("Crítico: 5% + 9% por ponto.");
+        System.out.println("Penetração: 6% por ponto.");
+
+        Tela.esperarEnter();
+    }
+
+    public static void mostrarAtaques() {
+        Tela.limparTela();
+
+        System.out.println("============= ATAQUES DE LUKE =============\n");
+
+        System.out.println("CORTE DE ESPADA - disponível desde o nível 1");
+        System.out.println("Dano: 10 + (nível x 2) + (força x 3)");
+        System.out.println("Efeito: 5% de chance de causar Sangramento.\n");
+
+        System.out.println("SOCO DIRETO - disponível desde o nível 1");
+        System.out.println("Dano: 8 + (nível x 2) + (força x 3)");
+        System.out.println("Efeito: pode causar acerto crítico.");
+        System.out.println("O crítico causa 50% de dano adicional e sua chance");
+        System.out.println("depende da Precisão de Luke.\n");
+
+        System.out.println("CORTE CARMESIM - desbloqueado no nível 3");
+        System.out.println("Dano: 13 + (nível x 2) + (força x 3)");
+        System.out.println("Efeito: 20% de chance de causar Sangramento.\n");
+
+        System.out.println("JULGAMENTO - desbloqueado no nível 5");
+        System.out.println("Dano: 16 + (nível x 2) + (força x 3)");
+        System.out.println("Efeito: pode causar crítico e utiliza Penetração.");
+        System.out.println("A Penetração ignora parte da resistência do inimigo.\n");
+
+        System.out.println("SANGRAMENTO CAUSADO POR LUKE");
+        System.out.println("Quando Corte de Espada ou Corte Carmesim aplica o efeito,");
+        System.out.println("o inimigo perde 5% da vida máxima ao fim de cada rodada.");
+        System.out.println("O mesmo Sangramento não acumula nem pode ser reaplicado");
+        System.out.println("enquanto ainda estiver ativo.");
+
+        Tela.esperarEnter();
+    }
+
+    public static void mostrarEfeitos() {
+        Tela.limparTela();
+
+        System.out.println("================ EFEITOS ================\n");
+
+        System.out.println("SANGRAMENTO");
+        System.out.println("- Causa 5% da vida máxima por rodada.");
+        System.out.println("- Se ultrapassar 7 turnos sem tratamento, causa morte");
+        System.out.println("  por hemorragia no processamento seguinte.");
+        System.out.println("- Luke pode remover o efeito com Atadura ou Sangue.");
+        System.out.println("- Luke também pode causar Sangramento nos inimigos com");
+        System.out.println("  Corte de Espada (5%) e Corte Carmesim (20%).\n");
+
+        System.out.println("QUEIMADURA");
+        System.out.println("- Causa imediatamente 10% da vida máxima de Luke.");
+        System.out.println("- Reduz a Força de Luke em 30% enquanto estiver ativa.");
+        System.out.println("- Dura no máximo 5 turnos.");
+        System.out.println("- Pode ser removida com Atadura ou Frasco de Sangue.\n");
+
+        System.out.println("ENVENENAMENTO");
+        System.out.println("- Começa causando 1% da vida máxima.");
+        System.out.println("- A intensidade aumenta em 1 ponto percentual por rodada.");
+        System.out.println("- Não possui limite de intensidade enquanto permanecer ativo.");
+        System.out.println("- Pode ser removido com Antídoto ou Frasco de Sangue.\n");
+
+        System.out.println("REGRAS GERAIS");
+        System.out.println("Efeitos diferentes podem existir ao mesmo tempo.");
+        System.out.println("O mesmo efeito não acumula enquanto já estiver ativo.");
+        System.out.println("Os efeitos de Luke permanecem entre os combates.");
+
+        Tela.esperarEnter();
+    }
+
+    public static void mostrarItens() {
+        Tela.limparTela();
+
+        System.out.println("============= ITENS E DROPS =============\n");
+
+        System.out.println("FRASCO DE SANGUE");
+        System.out.println("Recupera toda a vida de Luke e remove Sangramento,");
+        System.out.println("Queimadura e Envenenamento. Luke começa com 1.\n");
+
+        System.out.println("POÇÃO DE CURA");
+        System.out.println("Recupera 30% da vida máxima de Luke.");
+        System.out.println("Não remove efeitos negativos.\n");
+
+        System.out.println("ANTÍDOTO");
+        System.out.println("Remove o Envenenamento.\n");
+
+        System.out.println("ATADURA");
+        System.out.println("Remove Sangramento e Queimadura. Luke começa com 1.\n");
+
+        System.out.println("DROPS DO SEGURANÇA");
+        System.out.println("- 30% de chance de encontrar uma Atadura.");
+        System.out.println("- 5% de chance de encontrar um Frasco de Sangue.\n");
+
+        System.out.println("DROPS DO CIENTISTA");
+        System.out.println("- 10% de chance de Frasco de Sangue.");
+        System.out.println("- 60% de chance de Poção de Cura.");
+        System.out.println("- 60% de chance de Antídoto.\n");
+
+        System.out.println("Cada drop é calculado separadamente, então é possível");
+        System.out.println("encontrar mais de um item depois do mesmo combate.");
+
+        Tela.esperarEnter();
+    }
+
+    public static void mostrarEvolucao() {
+        Tela.limparTela();
+
+        System.out.println("=============== EVOLUÇÃO ===============\n");
+        System.out.println("Luke começa no nível 1 com 100 de vida máxima e");
+        System.out.println("3 pontos de atributo para distribuir.\n");
+
+        System.out.println("Após cada um dos quatro primeiros combates vencidos:");
+        System.out.println("- Luke sobe 1 nível.");
+        System.out.println("- A vida máxima aumenta em 20.");
+        System.out.println("- A vida atual é restaurada até a vida máxima.");
+        System.out.println("- Luke recebe mais 3 pontos de atributo.\n");
+
+        System.out.println("Vida máxima por nível:");
+        System.out.println("Nível 1: 100");
+        System.out.println("Nível 2: 120");
+        System.out.println("Nível 3: 140");
+        System.out.println("Nível 4: 160");
+        System.out.println("Nível 5: 180\n");
+
+        System.out.println("IMPORTANTE");
+        System.out.println("Subir de nível recupera a vida, mas NÃO remove efeitos.");
+        System.out.println("Sangramento, Queimadura e Envenenamento podem continuar");
+        System.out.println("ativos no combate seguinte até serem removidos.");
+
+        Tela.esperarEnter();
+    }
 }

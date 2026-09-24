@@ -1,12 +1,37 @@
 package personagens;
+
 public class Cientista {
-    public int vida, vidaMaxima, forca, resistencia, precisao, evasao;
-    public int chanceEnvenenamento, chanceQueimadura;
-    public int chanceFrascoSangue, chancePocaoCura, chanceAntidoto;
+    public int vida;
+    public int vidaMaxima;
+    public int forca;
+    public int resistencia;
+    public int precisao;
+    public int evasao;
+
+    public int sangramento;
+    public int turnosSangramento;
+
+    public int chanceEnvenenamento;
+    public int chanceQueimadura;
+    public int chanceFrascoSangue;
+    public int chancePocaoCura;
+    public int chanceAntidoto;
+
     public Cientista() {
-        vidaMaxima = 180; vida = vidaMaxima;
-        forca = 20; resistencia = 10; precisao = 15; evasao = 10;
-        chanceEnvenenamento = 30; chanceQueimadura = 30;
-        chanceFrascoSangue = 10; chancePocaoCura = 60; chanceAntidoto = 60;
+        vidaMaxima = 160;
+        vida = vidaMaxima;
+        forca = 18;
+        resistencia = 10;
+        precisao = 15;
+        evasao = 10;
+
+        sangramento = 0;
+        turnosSangramento = 0;
+
+        chanceEnvenenamento = 30;
+        chanceQueimadura = 30;
+        chanceFrascoSangue = 10;
+        chancePocaoCura = 60;
+        chanceAntidoto = 60;
     }
 }

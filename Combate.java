@@ -36,11 +36,38 @@ public class Combate {
     static int calcularDanoNoInimigo(int dano,int res,int pen){int re=res-pen;
         if(re<0)re=0;dano=dano*(100-re)/100;
         return Math.max(dano,1);}
-    static int[] executarAtaqueLuke(Luke l){int op=escolherAtaqueLuke(l),pen=0,d=0;
-        switch(op){case 1:d=Ataques.corteEspada(l);
-        break;case 2:d=Ataques.socoDireto(l);
-        break;case 3:if(l.nivel>=3)d=Ataques.corteCarmesim(l);
-        break;case 4:if(l.nivel>=5){pen=Evolucao.calcularPenetracao(l);d=Ataques.julgamento(l);}break;}return new int[]{d,pen};}
+    static int[] executarAtaqueLuke(Luke luke) {
+        int opcao = escolherAtaqueLuke(luke);
+        int dano = 0;
+        int penetracao = 0;
+        int chanceSangramento = 0;
+
+        switch (opcao) {
+            case 1 -> {
+                dano = Ataques.corteEspada(luke);
+                chanceSangramento = 5;
+            }
+            case 2 -> dano = Ataques.socoDireto(luke);
+            case 3 -> {
+                if (luke.nivel >= 3) {
+                    dano = Ataques.corteCarmesim(luke);
+                    chanceSangramento = 20;
+                }
+            }
+            case 4 -> {
+                if (luke.nivel >= 5) {
+                    dano = Ataques.julgamento(luke);
+                    penetracao = Evolucao.calcularPenetracao(luke);
+                }
+            }
+        }
+
+        return new int[]{dano, penetracao, chanceSangramento};
+    }
+
+    static boolean tentarAplicarSangramento(int chance) {
+        return chance > 0 && RAND.nextInt(100) < chance;
+    }
     static int abrirBolsa(Luke l){System.out.printf("\nBOLSA\n1. Frasco de Sangue: %d\n2. Pocao de Cura: %d\n3. Antidoto: %d\n4. Ataduras: %d\n5. Voltar\n",l.frascoSangue,l.pocaoCura,l.antidoto,l.ataduras);
         System.out.print("\nEscolha: ");
         int op=Tela.lerInteiro();
@@ -77,13 +104,17 @@ public class Combate {
         System.out.println("===== TURNO DE LUKE =====");mostrarStatusCombate(l,"MUTANTE",m.vida,m.vidaMaxima,m.sangramento,0,m.envenenamento);esquivaAtiva=0;
         int acao=escolherAcao();
         switch(acao){case 1->{int[]r=executarAtaqueLuke(l);
-        int dano=r[0],pen=r[1];
+        int dano=r[0],pen=r[1],chanceSangramento=r[2];
         if(dano<=0){System.out.println("\nAtaque invalido.");
         Tela.esperarEnter();
         continue;}if(verificarEvasaoInimigo(m.evasao))System.out.println("\nO Mutante desviou do ataque.");else{dano=calcularDanoNoInimigo(dano,m.resistencia,pen);
         m.vida-=dano;
         if(m.vida<0)m.vida=0;
-        System.out.printf("\nLuke causou %d de dano.\n",dano);}}
+        System.out.printf("\nLuke causou %d de dano.\n",dano);
+        if (m.vida > 0 && m.sangramento == 0 && tentarAplicarSangramento(chanceSangramento)) {
+            Efeitos.aplicarSangramento(m);
+            System.out.println("O Mutante começou a sangrar!");
+        }}}
             case 2->{esquivaAtiva=1;
         System.out.println("\nLuke se prepara para esquivar.");}
             case 3->{if(abrirBolsa(l)==0){Tela.esperarEnter();
@@ -95,6 +126,7 @@ public class Combate {
         System.out.println("===== TURNO DO MUTANTE =====");mostrarStatusCombate(l,"MUTANTE",m.vida,m.vidaMaxima,m.sangramento,0,m.envenenamento);
         if(verificarEsquiva(l,esquivaAtiva))System.out.println("\nO Mutante atacou, mas Luke esquivou!");else{System.out.println();
         Ataques.ataqueFuria(m,l);}if(l.vida>0)Efeitos.processarEfeitos(l);
+        if(m.vida>0)Efeitos.processarSangramento(m);
         Tela.esperarEnter();}Tela.limparTela();
         if(l.vida<=0){System.out.println("\nLuke foi derrotado.");
         Tela.esperarEnter();
@@ -103,16 +135,20 @@ public class Combate {
         Tela.esperarEnter();}
 
     public static void combateSeguranca(Luke l,Seguranca s){int esquivaAtiva;while(l.vida>0&&s.vida>0){Tela.limparTela();
-        System.out.println("===== TURNO DE LUKE =====");mostrarStatusCombate(l,"SEGURANCA",s.vida,s.vidaMaxima,0,0,0);esquivaAtiva=0;
+        System.out.println("===== TURNO DE LUKE =====");mostrarStatusCombate(l,"SEGURANCA",s.vida,s.vidaMaxima,s.sangramento,0,0);esquivaAtiva=0;
         int acao=escolherAcao();
         switch(acao){case 1->{int[]r=executarAtaqueLuke(l);
-        int dano=r[0],pen=r[1];
+        int dano=r[0],pen=r[1],chanceSangramento=r[2];
         if(dano<=0){System.out.println("\nAtaque invalido.");
         Tela.esperarEnter();
         continue;}if(verificarEvasaoInimigo(s.evasao))System.out.println("\nO Seguranca desviou do ataque.");else{dano=calcularDanoNoInimigo(dano,s.resistencia,pen);
         s.vida-=dano;
         if(s.vida<0)s.vida=0;
-        System.out.printf("\nLuke causou %d de dano.\n",dano);}}
+        System.out.printf("\nLuke causou %d de dano.\n",dano);
+        if (s.vida > 0 && s.sangramento == 0 && tentarAplicarSangramento(chanceSangramento)) {
+            Efeitos.aplicarSangramento(s);
+            System.out.println("O Segurança começou a sangrar!");
+        }}}
             case 2->{esquivaAtiva=1;
         System.out.println("\nLuke se prepara para esquivar.");}
             case 3->{if(abrirBolsa(l)==0){Tela.esperarEnter();
@@ -121,9 +157,10 @@ public class Combate {
         continue;}}Tela.esperarEnter();
         if(s.vida<=0)break;
         Tela.limparTela();
-        System.out.println("===== TURNO DO SEGURANCA =====");mostrarStatusCombate(l,"SEGURANCA",s.vida,s.vidaMaxima,0,0,0);
+        System.out.println("===== TURNO DO SEGURANCA =====");mostrarStatusCombate(l,"SEGURANCA",s.vida,s.vidaMaxima,s.sangramento,0,0);
         if(verificarEsquiva(l,esquivaAtiva))System.out.println("\nO Seguranca atacou, mas Luke esquivou!");else{System.out.println();
         if(RAND.nextInt(2)==0)Ataques.tiroRifle(s,l);else Ataques.coronhada(s,l);}if(l.vida>0)Efeitos.processarEfeitos(l);
+        if(s.vida>0)Efeitos.processarSangramento(s);
         Tela.esperarEnter();}Tela.limparTela();
         if(l.vida<=0){System.out.println("\nLuke foi derrotado.");
         Tela.esperarEnter();
@@ -132,16 +169,20 @@ public class Combate {
         Tela.esperarEnter();}
 
     public static void combateCientista(Luke l,Cientista c){int esquivaAtiva;while(l.vida>0&&c.vida>0){Tela.limparTela();
-        System.out.println("===== TURNO DE LUKE =====");mostrarStatusCombate(l,"CIENTISTA",c.vida,c.vidaMaxima,0,0,0);esquivaAtiva=0;
+        System.out.println("===== TURNO DE LUKE =====");mostrarStatusCombate(l,"CIENTISTA",c.vida,c.vidaMaxima,c.sangramento,0,0);esquivaAtiva=0;
         int acao=escolherAcao();
         switch(acao){case 1->{int[]r=executarAtaqueLuke(l);
-        int dano=r[0],pen=r[1];
+        int dano=r[0],pen=r[1],chanceSangramento=r[2];
         if(dano<=0){System.out.println("\nAtaque invalido.");
         Tela.esperarEnter();
         continue;}if(verificarEvasaoInimigo(c.evasao))System.out.println("\nO Cientista desviou do ataque.");else{dano=calcularDanoNoInimigo(dano,c.resistencia,pen);
         c.vida-=dano;
         if(c.vida<0)c.vida=0;
-        System.out.printf("\nLuke causou %d de dano.\n",dano);}}
+        System.out.printf("\nLuke causou %d de dano.\n",dano);
+        if (c.vida > 0 && c.sangramento == 0 && tentarAplicarSangramento(chanceSangramento)) {
+            Efeitos.aplicarSangramento(c);
+            System.out.println("O Cientista começou a sangrar!");
+        }}}
             case 2->{esquivaAtiva=1;
         System.out.println("\nLuke se prepara para esquivar.");}
             case 3->{if(abrirBolsa(l)==0){Tela.esperarEnter();
@@ -150,9 +191,10 @@ public class Combate {
         continue;}}Tela.esperarEnter();
         if(c.vida<=0)break;
         Tela.limparTela();
-        System.out.println("===== TURNO DO CIENTISTA =====");mostrarStatusCombate(l,"CIENTISTA",c.vida,c.vidaMaxima,0,0,0);
+        System.out.println("===== TURNO DO CIENTISTA =====");mostrarStatusCombate(l,"CIENTISTA",c.vida,c.vidaMaxima,c.sangramento,0,0);
         if(verificarEsquiva(l,esquivaAtiva))System.out.println("\nO Cientista atacou, mas Luke esquivou!");else{System.out.println();
         switch(RAND.nextInt(3)){case 0->Ataques.jogarAcido(c,l);case 1->Ataques.jogarPocaoToxica(c,l);case 2->Ataques.arremessarObjeto(c,l);}}if(l.vida>0)Efeitos.processarEfeitos(l);
+        if(c.vida>0)Efeitos.processarSangramento(c);
         Tela.esperarEnter();}Tela.limparTela();
         if(l.vida<=0){System.out.println("\nLuke foi derrotado.");
         Tela.esperarEnter();
@@ -164,13 +206,17 @@ public class Combate {
         System.out.println("===== TURNO DE LUKE =====");mostrarStatusCombate(l,"LUCIUS VARN",x.vida,x.vidaMaxima,x.sangramento,0,0);esquivaAtiva=0;
         int acao=escolherAcao();
         switch(acao){case 1->{int[]r=executarAtaqueLuke(l);
-        int dano=r[0],pen=r[1];
+        int dano=r[0],pen=r[1],chanceSangramento=r[2];
         if(dano<=0){System.out.println("\nAtaque invalido.");
         Tela.esperarEnter();
         continue;}if(verificarEvasaoInimigo(x.evasao))System.out.println("\nLucius desviou do ataque.");else{dano=calcularDanoNoInimigo(dano,x.resistencia,pen);
         x.vida-=dano;
         if(x.vida<0)x.vida=0;
-        System.out.printf("\nLuke causou %d de dano.\n",dano);}}
+        System.out.printf("\nLuke causou %d de dano.\n",dano);
+        if (x.vida > 0 && x.sangramento == 0 && tentarAplicarSangramento(chanceSangramento)) {
+            Efeitos.aplicarSangramento(x);
+            System.out.println("Lucius começou a sangrar!");
+        }}}
             case 2->{esquivaAtiva=1;
         System.out.println("\nLuke se prepara para esquivar.");}
             case 3->{if(abrirBolsa(l)==0){Tela.esperarEnter();
@@ -182,6 +228,7 @@ public class Combate {
         System.out.println("===== TURNO DE LUCIUS =====");mostrarStatusCombate(l,"LUCIUS VARN",x.vida,x.vidaMaxima,x.sangramento,0,0);
         if(verificarEsquiva(l,esquivaAtiva))System.out.println("\nLucius atacou, mas Luke esquivou!");else{System.out.println();
         switch(RAND.nextInt(4)){case 0->Ataques.corteLamina(x,l);case 1->Ataques.disparoLaser(x,l);case 2->Ataques.socoPesado(x,l);case 3->Ataques.socoLeve(x,l);}}if(l.vida>0)Efeitos.processarEfeitos(l);
+        if(x.vida>0)Efeitos.processarSangramento(x);
         Tela.esperarEnter();}Tela.limparTela();
         if(l.vida<=0){System.out.println("\nLuke foi derrotado por Lucius Varn.");
         Tela.esperarEnter();
